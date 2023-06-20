@@ -3,7 +3,7 @@ export default function RootLayout({ children }) {
   return (
     <html >
       <head>
-        <title>Project</title>
+        <title>Tesis</title>
       </head>
       <body >
         <Navigation/>
