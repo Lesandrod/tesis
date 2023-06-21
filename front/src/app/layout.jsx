@@ -1,13 +1,13 @@
 import "./globals.css";
-import { Navigation } from "@/components/Navigation"
+import Head from "next/head";
 export default function RootLayout({ children }) {
   return (
     <html >
-      <head>
+      <Head>
         <title>Tesis</title>
-      </head>
-      <body >
-        <Navigation/>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <body >      
         {children}
       </body>
     </html>

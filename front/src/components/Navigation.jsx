@@ -6,13 +6,14 @@ const links = [
         href: "/"
     },
     {
-        text: "Ayuda",
-        href: "/ayuda"
-    },
-    {
         text: "Juegos",
         href: "/juegos"
+    },
+    {
+        text: "Ayuda",
+        href: "/ayuda"
     }
+    
 
 ]
 

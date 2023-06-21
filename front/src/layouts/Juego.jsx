@@ -1,3 +1,4 @@
+import { Navigation } from "@/components/Navigation"
 export function Juego({params}){
     const {id} = params
     return(

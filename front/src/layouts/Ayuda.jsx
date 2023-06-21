@@ -1,9 +1,17 @@
-export function Ayuda(){
-    return(
+import { Navigation } from "@/components/Navigation"
+export function Ayuda() {
+    return (
         <div>
-            <h1>
-                Ayuda
-            </h1>
+            <header>
+                <Navigation />
+            </header>
+            <div>
+                <h1>
+                    ayuda
+                </h1>
+            </div>
+            
+
         </div>
     )
 }
