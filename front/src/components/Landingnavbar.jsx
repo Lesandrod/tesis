@@ -4,7 +4,7 @@ export function Landingnavbar() {
         <header className="">
             <nav class="flex justify-between items-center px-4 py-2">
                 <div>
-                    <img src="https://i.ibb.co/x6hXCLf/nuestrologo.png" style={{width:45}} alt="" />
+                    <img src="https://i.ibb.co/zP2fkYq/logotipo.png" style={{width:45}} alt="" />
                 </div>
                 <div class="flex items-center mt-3">
                     <div class="mx-4">
