@@ -32,12 +32,12 @@
 			font-weight: bold;
 			text-align: center;
 			background-color: #000;
-			background-image: linear-gradient(-45deg, #0e042e 9%, rgb(15, 3, 13) 50%, rgb(43, 2, 26) 90%);
+			background-image: linear-gradient(-45deg, #130349 9%, rgb(0, 0, 0) 50%, rgb(59, 4, 36) 90%);
 			background-size: 200% 200%;
 			color: transparent;
 			-webkit-background-clip: text;
 			background-clip: text;
-			animation: brillo 2.5s linear infinite alternate;
+			animation: brillo 2.8s linear infinite alternate;
 
       /* font-size: 80px;
       font-weight: 600;
