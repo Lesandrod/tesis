@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
 
 .login {
   background-color: #F4F2F2;
@@ -9,9 +10,9 @@
 
 .hero {
   #no {
-    font-weight: 700;
+    font-weight: 900;
     color: #410650;
-    font-size: 46px;
+    font-size: 40px;
 
   }
 
@@ -28,16 +29,18 @@
 
 
     .welcome {
-      font-size: 80px;
-			font-weight: bold;
-			text-align: center;
-			background-color: #000;
-			background-image: linear-gradient(-45deg, #130349 9%, rgb(0, 0, 0) 50%, rgb(59, 4, 36) 90%);
-			background-size: 200% 200%;
-			color: transparent;
-			-webkit-background-clip: text;
-			background-clip: text;
-			animation: brillo 2.8s linear infinite alternate;
+      font-family: 'Space Grotesk', sans-serif, 'Courier New', Courier, monospace;
+
+      font-size: 78px;
+      font-weight: 700;
+      text-align: center;
+      background-color: #000;
+      background-image: linear-gradient(-45deg, #5239a3 9%, rgb(12, 55, 71) 50%, rgb(59, 4, 82) 90%);
+      background-size: 200% 200%;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: brillo 2.8s linear infinite alternate;
 
       /* font-size: 80px;
       font-weight: 600;
@@ -45,12 +48,13 @@
     }
 
     .welcome2 {
-      font-size: 40px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 35px;
       color: rgb(241, 228, 247);
     }
 
     .buttoninfo {
-      
+
       color: #F4F2F2;
       font-weight: bold;
       background-color: #652cc2;
@@ -71,7 +75,7 @@
 
   }
 
-  
+
 
 
 
@@ -91,6 +95,7 @@
   0% {
     background-position: 0% 50%;
   }
+
   100% {
     background-position: 100% 50%;
   }
