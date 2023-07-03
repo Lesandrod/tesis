@@ -11,7 +11,7 @@ export function Landingnavbar({ openModal }) {
                 <div>
                     <img src="https://i.ibb.co/zP2fkYq/logotipo.png" style={{ width: 45 }} alt="" />
                 </div>
-                <div className="flex items-center mt-3">
+                <div className="flex items-center mt-3 ">
                     <div className="mx-4">
                         <button className="underline hover:text-purple-800 font-semibold" style={{ textDecoration: 'none', color: "white" }} onClick={openModal}>Sign In</button>
                     </div>

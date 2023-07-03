@@ -39,7 +39,7 @@ export default function ModalLogin({ isOpen, onClose, children }) {
                 </div>
                 <div className={styles.modalform}>
                     <form className={styles.loginform} onSubmit={handleSubmit}>
-                        <h2>Bienvenido de Nuevo</h2><br />
+                        <h2 className={styles.welcome}>Bienvenido de Nuevo</h2><br />
 
                         <input
 
