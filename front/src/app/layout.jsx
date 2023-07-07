@@ -1,5 +1,5 @@
 import "./globals.css";
-import Head from "next/head";
+
 export default function RootLayout({ children }) {
   return (
     <html >
@@ -13,7 +13,10 @@ export default function RootLayout({ children }) {
 
       </head>
       <body >
-        {children}
+        
+          {children}
+        
+
       </body>
     </html>
   )

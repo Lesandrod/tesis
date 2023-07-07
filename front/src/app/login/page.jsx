@@ -8,6 +8,7 @@ export default function UnauthenticatedPage() {
     const openModal = () => {
         setIsOpen(true);
     };
+    
 
 
     const closeModal = () => {
@@ -37,6 +38,7 @@ export default function UnauthenticatedPage() {
             <ModalLogin
                 isOpen={isOpen}
                 onClose={closeModal}
+                
             />
 
         </div>

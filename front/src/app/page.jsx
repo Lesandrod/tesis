@@ -7,7 +7,10 @@ export default function Home() {
         <Navigation />
 
       </header>
-      <Main />
+      <div>
+        <Main />
+      </div>
+
 
     </div>
 

@@ -1,9 +1,19 @@
 import { Ayuda } from "@/layouts/Ayuda"
-export default function AyudaPage () {
+import { Navigation } from "@/components/Navigation"
+export default function AyudaPage() {
     return (
 
-        <Ayuda/>
-        
+        <div>
+            <header>
+                <Navigation />
+            </header>
+            <div>
+                <Ayuda />
+            </div>
+
+        </div>
+
+
     )
 
 }

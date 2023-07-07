@@ -26,7 +26,13 @@
   background-size: cover;
   background-position: center center;
 }
-
+.underline{
+  text-decoration: none;
+}
+.underline :hover{
+  
+  color: #5513c0d2;
+}
 .hero1 {
 
 
