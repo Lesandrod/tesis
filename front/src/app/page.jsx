@@ -1,6 +1,10 @@
+"use client"
 import { Main } from "@/layouts/Main"
 import { Navigation } from "@/components/Navigation"
-export default function Home() {
+import { WithAuth } from "@/components/withAuth"
+ function Home() {
+
+
   return (
     <div>
       <header>
@@ -15,4 +19,9 @@ export default function Home() {
     </div>
 
   )
+
 }
+
+export default WithAuth(Home)
+
+

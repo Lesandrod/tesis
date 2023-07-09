@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation"
 import styles from './styles/ayuda.module.css'
-export function Ayuda() {
+export function  Ayuda() {
     return (
         <div>
 

@@ -1,23 +1,28 @@
-import axios from "axios";
 
-baseUrl = "http://localhost:3000/api";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase";
 
-const login = async (credentials) => {
-   const response = await axios.post(baseUrl, credentials)
-   console.log(`%c${response}`, 'color: yellow');
-   return response
+const baseUrlRegister = "http://localhost:5000/api/register";
+const baseUrlLogin = "http://localhost:5000/api/login";
+
+
+const register = async (email, password) => {
+   createUserWithEmailAndPassword(auth, email, password)
 }
 
-const register = async (credentials) => {
-   const response = await axios.post(baseUrl, credentials)
-   console.log(`%c${response}`, 'color: yellow');
-   return response
 
+
+
+const logout = () => {
+   localStorage.removeItem('token')
+
+   
 }
+
 
 
 
 export {
-   login,
+   logout,
    register
 }

@@ -1,6 +1,8 @@
+"use client"
 import { Navigation } from "@/components/Navigation"
 import { Profile } from "@/layouts/Profile"
-export default function ProfilePage(){
+import { WithAuth } from "@/components/withAuth"
+function ProfilePage(){
     return(
         <div>
             <header>
@@ -12,6 +14,6 @@ export default function ProfilePage(){
             
         </div>
     )
-    
-
 }
+export default WithAuth(ProfilePage)
+

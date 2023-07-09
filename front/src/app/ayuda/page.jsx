@@ -1,6 +1,8 @@
+"use client"
 import { Ayuda } from "@/layouts/Ayuda"
 import { Navigation } from "@/components/Navigation"
-export default function AyudaPage() {
+import { WithAuth } from "@/components/withAuth"
+ function  AyudaPage() {
     return (
 
         <div>
@@ -17,3 +19,5 @@ export default function AyudaPage() {
     )
 
 }
+export default WithAuth(AyudaPage)
+

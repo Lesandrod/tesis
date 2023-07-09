@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+
 import styles from './styles/ModalLogin.module.css';
 import { login } from '@/controllers/serviceUser';
 
@@ -15,20 +15,24 @@ export default function ModalLogin({ isOpen, onClose, }) {
 
         const formData = new FormData(e.target)
         const email = formData.get('email')
-        const pass = formData.get('password')
+        const password = formData.get('password')
 
         try {
 
-            if (email === '' || pass === '') {
+            if (email === '' || password === '') {
                 alert('Por favor, rellene todos los campos');
                 return;
             }
 
-            const response = await login({ email, pass });
+            const response = await login({ email, password });
+            console.log(response.data ,response.data.user.email)
             if (response.status === 200){
                 
                 const token = response.data.token;
+                alert("Inicio de sesión exitoso")
+                
                 localStorage.setItem('token', token);
+
                 //pushear a la vista principal
             }else{
                 alert("Inicio de sesión fallido")

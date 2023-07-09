@@ -1,6 +1,8 @@
+"use client"
 import { Juegos } from "@/layouts/Juegos"
 import { Navigation } from "@/components/Navigation"
-export default function JuegosPage() {
+import { WithAuth } from "@/components/withAuth"
+ function JuegosPage() {
     return (
         <div>
             <header>
@@ -13,3 +15,5 @@ export default function JuegosPage() {
         </div>
     )
 }
+export default WithAuth(JuegosPage)
+

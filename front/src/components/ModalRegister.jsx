@@ -1,40 +1,46 @@
 import styles from './styles/ModalRegister.module.css'
 import { useState } from 'react'
 import { register } from '@/controllers/serviceUser'
+import { auth } from '@/firebase'
+import { useRouter } from 'next/navigation'
+
 export default function ModalRegister({ isOpen1, onClose1, children }) {
     if (!isOpen1) {
         return null
     }
     const [passwordMatch, setPasswordMatch] = useState(true)
-
-
+    const { push } = useRouter();
+    const getprinttoken = () => {
+        const token = localStorage.getItem('token');
+        console.log(token);
+    
+    }
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const formData = new FormData(e.target)
         const email = formData.get('email')
-        const pass = formData.get('password')
+        const password = formData.get('password')
         const repeatpass = formData.get('repeatpass')
 
-
-        if (pass === repeatpass) {
+        if (password.length < 6) {
+            alert('La contraseña debe tener al menos 6 caracteres')
+            return
+        }
+        if (password === repeatpass) {
             setPasswordMatch(true)
 
             try {
-                const response = await register({ email, pass });
-                if (response.status === 200) {
-
-                    localStorage.setItem('token', token);
-                }else{
-
-                    alert('Error al Registrarse');
+                register(email, password)
                 
-                }
+                const token = await auth.currentUser.getIdToken();
+                localStorage.setItem('token', token);
+                push('/');
 
 
             } catch (error) {
-                console.log(`%cError al Registrarse: ${error}`, 'color: yellow')
-                alert('Error al Iniciar sesion');
+                console.log(` error : ${error}`)
+                
             }
 
         } else {
@@ -59,6 +65,7 @@ export default function ModalRegister({ isOpen1, onClose1, children }) {
                         <center>
                             <h2 className={styles.welcome}>Crea tu cuenta YAAAA!!!!</h2><br />
                         </center>
+                        
 
 
                         <div>
