@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import styles from './styles/ModalLogin.module.css';
-import { login } from '@/controllers/login';
+import { login } from '@/controllers/serviceUser';
 
 
 export default function ModalLogin({ isOpen, onClose, }) {

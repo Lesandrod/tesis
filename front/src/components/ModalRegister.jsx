@@ -1,6 +1,6 @@
-import axios from 'axios'
 import styles from './styles/ModalRegister.module.css'
 import { useState } from 'react'
+import { register } from '@/controllers/serviceUser'
 export default function ModalRegister({ isOpen1, onClose1, children }) {
     if (!isOpen1) {
         return null
@@ -12,22 +12,24 @@ export default function ModalRegister({ isOpen1, onClose1, children }) {
         e.preventDefault()
 
         const formData = new FormData(e.target)
-        const endpoint = process.env.API_SIGNIN
         const email = formData.get('email')
         const pass = formData.get('password')
         const repeatpass = formData.get('repeatpass')
 
-        const data = {
-            email: email,
-            password: pass,
-        }
 
         if (pass === repeatpass) {
             setPasswordMatch(true)
 
             try {
-                response = await axios.post(endpoint, data)
-                console.log(`%c${response}`, 'color: yellow');
+                const response = await register({ email, pass });
+                if (response.status === 200) {
+
+                    localStorage.setItem('token', token);
+                }else{
+
+                    alert('Error al Registrarse');
+                
+                }
 
 
             } catch (error) {
