@@ -2,15 +2,18 @@
 
 import { redirect } from 'next/navigation';
 export function WithAuth(WrappedComponent) {
-  return  (props) => {
 
-    // const { push } = useRouter();
+    const isAuth = localStorage.getItem('token');
+    return (props) => {
 
-       if (!localStorage.getItem('token')){
+
+        // const { push } = useRouter();
+
+        if (!isAuth) {
             redirect('/login');
-       }else{return <WrappedComponent {...props} />;}
- 
+        } else { return <WrappedComponent {...props} />; }
 
-    
-  };
+
+
+    };
 }
