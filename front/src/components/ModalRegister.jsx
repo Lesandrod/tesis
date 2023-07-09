@@ -6,8 +6,8 @@ export default function ModalRegister({ isOpen1, onClose1, children }) {
         return null
     }
     const [passwordMatch, setPasswordMatch] = useState(true)
-    
-    
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -27,7 +27,6 @@ export default function ModalRegister({ isOpen1, onClose1, children }) {
 
             try {
                 response = await axios.post(endpoint, data)
-
                 console.log(`%c${response}`, 'color: yellow');
 
 
@@ -39,7 +38,6 @@ export default function ModalRegister({ isOpen1, onClose1, children }) {
         } else {
             setPasswordMatch(false)
         }
-
     }
 
     return (
@@ -56,27 +54,62 @@ export default function ModalRegister({ isOpen1, onClose1, children }) {
                 </div>
                 <div className={styles.modalform}>
                     <form className={styles.loginform} onSubmit={handleSubmit}>
-                        <h2 className={styles.welcome}>Crea tu cuenta YAAAA!!!!</h2><br />
+                        <center>
+                            <h2 className={styles.welcome}>Crea tu cuenta YAAAA!!!!</h2><br />
+                        </center>
 
-                        <input
 
-                            type="email"
-                            placeholder="Ingrese un correo electronico"
-                            name='email'
+                        <div>
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input
+                                        class="input"
+                                        type="email"
+                                        placeholder="Ingrese su correo"
+                                        name='email'
+                                    />
 
-                        />
-                        <input
+                                    <span class="icon is-small is-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                                        </svg>
+                                    </span>
 
-                            type="password"
-                            placeholder="Ingrese una contraseña"
-                            name='password'
-                        />
-                        <input
+                                </p>
+                            </div>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input
+                                        class="input"
+                                        type="password"
+                                        placeholder="Ingrese su scontraseña"
+                                        name='password'
+                                    />
+                                    <span class="icon is-small is-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+                                            <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                        </svg>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input
+                                        class="input"
+                                        type="password"
+                                        placeholder="Repita su contraseña"
+                                        name='repeatpass'
+                                    />
+                                    <span class="icon is-small is-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                        </svg>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
 
-                            type="password"
-                            placeholder="repita su contraseña"
-                            name='repeatpass'
-                        />
                         {!passwordMatch && <p className={styles.errorpass}>Las contraseñas no coinciden.</p>}
 
                         <br />

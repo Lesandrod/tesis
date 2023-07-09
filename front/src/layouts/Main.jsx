@@ -16,9 +16,6 @@ export function Main() {
                                 <p claclassNames={styles.cardtext}>Read more</p>
                             </div>
                         </div>
-
-
-
                     </div>
                 </section>
             </div>

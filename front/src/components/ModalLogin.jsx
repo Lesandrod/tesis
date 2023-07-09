@@ -1,41 +1,43 @@
 "use client"
 import { useState } from 'react';
 import styles from './styles/ModalLogin.module.css';
-import axios from 'axios';
+import { login } from '@/controllers/login';
+
 
 export default function ModalLogin({ isOpen, onClose, }) {
-    const [showPassword, setShowPassword] = useState(false);
+    
     if (!isOpen) {
         return null;
     }
-    const handleTogglePassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    //funcion para inicia sesión
+    
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
         const formData = new FormData(e.target)
         const email = formData.get('email')
         const pass = formData.get('password')
-        const endpoint = process.env.API_SIGNUP
-
-        const data = { email: email, password: pass }
 
         try {
-            response = await axios.post(endpoint, data)
-            console.log(response);
+
+            if (email === '' || pass === '') {
+                alert('Por favor, rellene todos los campos');
+                return;
+            }
+
+            const response = await login({ email, pass });
+            if (response.status === 200){
+                
+                const token = response.data.token;
+                localStorage.setItem('token', token);
+                //pushear a la vista principal
+            }else{
+                alert("Inicio de sesión fallido")
+            }
 
         } catch (error) {
             console.log(`%cError al Iniciar sesión: ${error}`, 'color: yellow')
             alert('Error al Iniciar sesion');
         }
-
-
-
-
     }
 
     return (
@@ -50,43 +52,55 @@ export default function ModalLogin({ isOpen, onClose, }) {
                 <div className={styles.modalimage}>
                     <img className={styles.img} src="https://i.ibb.co/K7Htms6/OIG.jpg" alt="Imagen" />
                 </div>
+
+
+
+
                 <div className={styles.modalform}>
 
                     <form className={styles.loginform} onSubmit={handleSubmit}>
                         <h2 className={styles.welcome}>Bienvenido de Nuevo</h2><br />
 
+                        <div>
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input
+                                        class="input"
+                                        type="email"
+                                        placeholder="Ingrese su correo"
+                                        name='email'
+                                    />
 
-                        <input
+                                    <span class="icon is-small is-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                                        </svg>
+                                    </span>
 
-                            type="email"
-                            placeholder="Ingrese su correo"
-                            name='email'
-
-                        />
-
-
-                        <input
-
-                            type={showPassword ? 'text' : 'password'}
-                            placeholder="Ingrese su scontraseña"
-                            name='password'
-                        />
-
-                        <button type="button" onClick={handleTogglePassword}>
-                            {showPassword ? <p className={styles.showpass}>Ocultar</p> : <p className={styles.showpass}> Ver</p>}
-                        </button>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input
+                                        class="input"
+                                        type="password"
+                                        placeholder="Ingrese su scontraseña"
+                                        name='password'
+                                    />
+                                    <span class="icon is-small is-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+                                            <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                        </svg>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
                         <br />
-
-
-
                         <button className={styles.boton} type="submit">
                             Iniciar sesión
                         </button>
-
                     </form>
                 </div>
-
-
             </div>
         </div>
     );

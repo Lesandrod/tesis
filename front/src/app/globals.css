@@ -6,6 +6,7 @@
 
 .login {
   background-color: #F4F2F2;
+  font-family: 'Space Grotesk', sans-serif, 'Courier New', Courier, monospace; ;
 }
 
 #no {
@@ -32,6 +33,27 @@
 .underline :hover{
   
   color: #5513c0d2;
+}
+.who{
+  margin-top: 5%;
+  font-size: 30px ;
+}
+.sections{
+  padding: 9%;
+  
+  
+}
+.sections img{
+  border-radius: 20px;
+}
+
+.sections1{
+  padding: 20%;
+
+}
+.sections1 h2{
+  text-align: justify;
+
 }
 .hero1 {
 
